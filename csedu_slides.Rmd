@@ -1,0 +1,78 @@
+---
+title: "Effects of Early Warning Emails on Student Performance <br>"
+subtitle: ""
+author: ""
+date: "21-23 April, 2023"
+location: "Prague"
+output:
+  xaringan::moon_reader:
+    css: ["default", "assets/ude_fonts.css", "assets/ude.css"]
+    self_contained: true # if true, fonts will be stored locally
+    seal: false # show a title slide with YAML information
+    includes:
+      in_header: "assets/mathjax-equation-numbers.html"
+    nature:
+      beforeInit: ["assets/remark-zoom.js"]
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: '16:9' #alternatives '16:9' or '4:3' or others e.g. 13:9
+      navigation:
+        scroll: TRUE #disable slide transitions by scrolling
+---
+class: title-slide  
+```{r, load_refs, include = FALSE, echo=FALSE, cache=FALSE}
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'authoryear', 
+           style = "markdown",
+           hyperlink = FALSE, 
+           dashed = FALSE)
+myBib <- ReadBib("assets/example.bib", check = FALSE)
+
+# packages
+source(here::here('assets/packages.R'))
+```
+
+```{r xaringanExtra_progress-bar, echo = FALSE}
+xaringanExtra::use_progress_bar(color = "#004c93", location = "bottom")
+```
+
+```{r xaringanExtra-clipboard_2, echo=FALSE}
+# copy button styles mainly in ude.css 
+# https://github.com/gadenbuie/xaringanExtra
+htmltools::tagList(
+  xaringanExtra::use_clipboard(
+    button_text = "<i class=\"fa fa-clipboard\"></i>",
+    success_text = "<i class=\"fa fa-check\" style=\"color: #00ff00\"></i>",
+    error_text = "<i class=\"fa fa-times-circle\" style=\"color: #F94144\"></i>"
+  ),
+  rmarkdown::html_dependency_font_awesome()
+)
+```
+<br>
+<br>
+# `r rmarkdown::metadata$title`
+
+
+
+
+.padding_left.pull-down.white[
+__J. Klenke__, T. Massing, N. Reckmann, J. Langerbein, B. Otto, M. Goedicke, C. Hanck
+<br>
+<br>
+<br>
+$15^{TH}$ International Conference on Computer Supported Education
+
+Prague, `r rmarkdown::metadata$date`
+]
+
+---
+# Structure 
+
+- Course
+- setting / Treatment
+
+
+
