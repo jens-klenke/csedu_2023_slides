@@ -56,10 +56,8 @@ htmltools::tagList(
 # `r rmarkdown::metadata$title`
 
 
-
-
 .padding_left.pull-down.white[
-__J. Klenke__, T. Massing, N. Reckmann, J. Langerbein, B. Otto, M. Goedicke, C. Hanck
+.font120[**_J. Klenke_**], T. Massing, N. Reckmann, J. Langerbein, B. Otto, M. Goedicke, C. Hanck
 <br>
 <br>
 <br>
@@ -67,6 +65,41 @@ $15^{TH}$ International Conference on Computer Supported Education
 
 Prague, `r rmarkdown::metadata$date`
 ]
+
+---
+# Course Description 
+
+---
+# Course Timeline Main Events
+
+<br>
+```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
+knitr::include_graphics(here::here('plots/timeline_plot.png'))
+```
+
+---
+# setting / Treatment
+- Logit Prediction
+
+
+
+---
+# Sorting Test 
+
+```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
+knitr::include_graphics(here::here('plots/test_cont_label.png'))
+```
+
+
+---
+# Model illustration 
+
+```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
+knitr::include_graphics(here::here('plots/model_plot_label.png'))
+```
+
+
+
 
 ---
 # Structure 
