@@ -33,6 +33,10 @@ myBib <- ReadBib("assets/example.bib", check = FALSE)
 
 # packages
 source(here::here('assets/packages.R'))
+
+# infinity reader
+# options(servr.interval = 0.5)
+# xaringan::inf_mr()
 ```
 
 ```{r xaringanExtra_progress-bar, echo = FALSE}
@@ -68,6 +72,21 @@ Prague, `r rmarkdown::metadata$date`
 
 ---
 # Course Description 
+
+- Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen of the summer semester 2019
+- Compulsory course for several business and economics programs
+  - Weekly 2-hour lecture 
+  - Weekly 2-hour exercise
+  - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
+  - Homework and 5 online tests were offered on the e-assessment platform [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
+- Information from __802__ individuals were collected from Moodle  
+  - __337__ students took an exam at the end of the semester
+
+---
+# Warning System
+- Logit model was used to predict students probability to past the final exam
+
+
 
 ---
 # Course Timeline Main Events
