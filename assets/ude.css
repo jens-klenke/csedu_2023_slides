@@ -178,7 +178,10 @@ a {
   column-gap: 1em;
 }
 
-
+/* caption size */
+p.caption {
+  font-size: 0.75em;
+}
 
 /******************
  * Slide scrolling

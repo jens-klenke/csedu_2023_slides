@@ -83,22 +83,36 @@ Prague, `r rmarkdown::metadata$date`
   - __337__ students took an exam at the end of the semester
 
 ---
-# Warning System
-- Logit model was used to predict students probability to past the final exam
-
-
+# Data and Warning Mail Decision
+- We used two data sources 
+  - The first three online tests results  
+  - The commutative homework points in JACK
+- Logit model was used to predict students probability to past the final exam soley based on the results in the frist three online tests
+  - Model was trained with the latest data obtained from the same course given two years earlier
+  - We hold the lecture only every other year
+- If the predicted probability was less than 0.4 the student was indicated with a warning
+- However, as the online tests were not mandatory we also considered students' general activity in JACK and modified the decision on whether a mail was sent
 
 ---
 # Course Timeline Main Events
 
+<br> 
 <br>
-```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
+
+```{r, out.width="80%", fig.align="center", fig.cap=c("Timeline for the key events in the 2019 summer term course Inferential Statistics (treatment cohort). The shaded area indicates the period after treatment. There were 57 days between the warning email and the first opportunity to take the exam and 113 days between the warning email and the second opportunity."), echo=FALSE}
 knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ```
 
 ---
-# setting / Treatment
-- Logit Prediction
+# Regression Discontinuity Design (RDD) 
+
+- The treatment is not assigned randomly but based on previous results
+- A 
+
+
+
+
+
 
 
 
