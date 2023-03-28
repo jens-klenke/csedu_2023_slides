@@ -54,6 +54,9 @@ htmltools::tagList(
   ),
   rmarkdown::html_dependency_font_awesome()
 )
+
+desktop <- icons::icon_style(icons::fontawesome$solid$desktop, fill = "#004c93")
+exclamation <- icons::icon_style(icons::fontawesome$solid$exclamation, fill = "#004c93")
 ```
 <br>
 <br>
@@ -83,6 +86,11 @@ Prague, `r rmarkdown::metadata$date`
   - __337__ students took an exam at the end of the semester
 
 ---
+# Theorie 
+- Predicting students success and/or final grad is relatively early possible 
+
+
+---
 # Data and Warning Mail Decision
 - We used two data sources 
   - The first three online tests results  
@@ -106,18 +114,50 @@ knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ---
 # Regression Discontinuity Design (RDD) 
 
-- The treatment is not assigned randomly but based on previous results
-- A 
+- The treatment is __not__ randomly assigned and therefore more commonly used methods like OLS are not suitable
+  - In our design the treatment is main a function of the predicted probability to pass the final exam   
+- Consider the following suitable RDD representation:
 
+$$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
+.padding_left.padding_left.font70[
+<ul>
+  <li> \(W_i\) denotes the predicted probability to pass the final exam</li>
+  <li> \(T_i\) indicates if a student received a mail</li>
+  <ul style="list-style-type: '&#8227;  ';"  >
+    <li>\(T_i = 1[W_i \leq c]\) , with \(c = 0.4\) </li>
+  </ul>
+  <li>\(\alpha\) denotes the treatment effect</li>
+  <li>\(u_i\) denotes the error term</li>
+</ul>
+]
 
+- RDD compares the individuals around the cutoff to estimate an effect
+  - This design is called _sharp_ RDD as the treatment and control group are perfectly separated
 
+--
 
+`r exclamation` $\;$  This design is not suitable for our analysis as our groups are not perfectly separated  
 
+---
+# Fuzzy RDD
+- With the _fuzzy_ design it is possible to analyse a treatment for a setting where the two groups are not perfectly separated
+- Only the likelihood of receiving the treatment needs to _change_
+- The effect is estimated through an instrumental variable estimation where in the first stage the $\widehat{T}_i$ are estimated which then are inserted in the second stage 
 
+- First Stage: 
+$$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$
+
+- Second Stage: 
+$$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
+
+---
+# RDD Graphic 
 
 
 ---
-# Sorting Test 
+# Model Assumption
+
+
 
 ```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
 knitr::include_graphics(here::here('plots/test_cont_label.png'))
@@ -125,7 +165,7 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 
 
 ---
-# Model illustration 
+# Results
 
 ```{r, out.width="80%", fig.align="center", fig.cap=c("your caption"), echo=FALSE}
 knitr::include_graphics(here::here('plots/model_plot_label.png'))
@@ -135,12 +175,4 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 
 
 ---
-# Structure 
-
-- Course
-- setting / Treatment
-
-
-
----
-
+# Sources 
