@@ -172,6 +172,57 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 ```
 
 
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky"></th>
+    <th class="tg-c3ow">Model 1</th>
+    <th class="tg-c3ow">Model 2</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">LATE</td>
+    <td class="tg-c3ow">0.193<br>(4.889)</td>
+    <td class="tg-c3ow">0.146<br>(4.852)</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Bandwith</td>
+    <td class="tg-c3ow">0.255</td>
+    <td class="tg-c3ow">0.255</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">F-statistics</td>
+    <td class="tg-c3ow">0.257</td>
+    <td class="tg-c3ow">0.257</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">N</td>
+    <td class="tg-c3ow">126</td>
+    <td class="tg-c3ow">126</td>
+  </tr>
+</tbody>
+</table>
+
+---
+
+```{r moidel_table, echo = FALSE}
+ #### freq LASSO ####
+
+mods <- readxl::read_excel(here::here('data/model.xlsx'))
+
+knitr::kable(mods, caption = '\\label{tab:sum_lm} Summary of the linear model', format.args = list(decimal.mark = '.', big.mark = " "),   booktabs = TRUE, linesep = "")%>%
+  kable_styling(latex_options = c("striped", "hold_position"))
+```
 
 
 ---
