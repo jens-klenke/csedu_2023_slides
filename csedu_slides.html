@@ -84,7 +84,7 @@ Prague, 21-23 April, 2023
   - __337__ students took an exam at the end of the semester
 
 ---
-# Theorie 
+# Research Idea Theorie 
 - Predicting students success and/or final grad is relatively early possible 
 
 
@@ -115,7 +115,7 @@ Prague, 21-23 April, 2023
 
 - The treatment is __not__ randomly assigned and therefore more commonly used methods like OLS are not suitable
   - In our design the treatment is main a function of the predicted probability to pass the final exam   
-- Consider the following suitable RDD representation:
+- Consider the following _sharp_ RDD representation: 
 
 `$$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$`
 .padding_left.padding_left.font70[
@@ -131,7 +131,8 @@ Prague, 21-23 April, 2023
 ]
 
 - RDD compares the individuals around the cutoff to estimate an effect
-  - This design is called _sharp_ RDD as the treatment and control group are perfectly separated
+  - __Main Assumption:__ Indivduals around the cutoff are similar in all aspects except the treatment
+
 
 --
 
@@ -139,9 +140,10 @@ Prague, 21-23 April, 2023
 
 ---
 # Fuzzy RDD
-- With the _fuzzy_ design it is possible to analyse a treatment for a setting where the two groups are not perfectly separated
-- Only the likelihood of receiving the treatment needs to _change_
-- The effect is estimated through an instrumental variable estimation where in the first stage the `\(\widehat{T}_i\)` are estimated which then are inserted in the second stage 
+
+- __Fuzzy__ RDD allows to analyse a treatment in a setting where the two groups are not perfectly separated
+  - Only the likelihood of receiving the treatment needs to _change_
+- The effect is estimated through an instrumental variable estimation where in the first stage the `\(\widehat{T}_i\)` are estimated which then are inserted in the second stage
 
 - First Stage: 
 `$$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$`
@@ -152,31 +154,51 @@ Prague, 21-23 April, 2023
 ---
 # RDD Graphic 
 
+exmaple plot 
 
 ---
-# Model Assumption
+# Model Assumptions
 
+- The running variable `\(W\)` (predicted probability to pass the exam) needs to be continuous around the cutoff, otherwise students could manipulate the treatment
 
-
+.pull-left-2[
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="plots/test_cont_label.png" alt="your caption" width="80%" /&gt;
-&lt;p class="caption"&gt;your caption&lt;/p&gt;
+&lt;img src="plots/test_cont_label.png" alt="Graphical illustration of the McCrary sorting test." width="80%" /&gt;
+&lt;p class="caption"&gt;Graphical illustration of the McCrary sorting test.&lt;/p&gt;
 &lt;/div&gt;
+]
 
+--
+
+.pull-right-1[
+&lt;br&gt;
+
+- There is no jump in the density around the cutoff point of `\(0.4\)`. 
+- `\(p\)`-value: `\(0.509\)`
+- The incentive to manipulate the treatment is quiet low. 
+
+]
+
+--
+
+.pull-down[
+- Also standard IV estimation assumptions must hold, which they do by construction of RDD
+]
 
 ---
 # Results
 
 &lt;div class="figure" style="text-align: center"&gt;
-&lt;img src="plots/model_plot_label.png" alt="your caption" width="80%" /&gt;
-&lt;p class="caption"&gt;your caption&lt;/p&gt;
+&lt;img src="plots/model_plot_label.png" alt="Graphical illustration of the RDD Model." width="80%" /&gt;
+&lt;p class="caption"&gt;Graphical illustration of the RDD Model.&lt;/p&gt;
 &lt;/div&gt;
-
 
 
 
 ---
 # Sources 
+
+- McCrary, J. (2008). Manipulation of the running variable in the regression discontinuity design: A density test. Journal of Econometrics, 142(2):698–714.
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
