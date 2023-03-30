@@ -121,8 +121,13 @@ knitr::include_graphics(here::here('plots/timeline_plot.png'))
 
 -> Problem : Kaum analisiert 
 ---
-# RDD Example Plot 
-example
+# RDD Example Plot &#8212; I
+
+## Parametric Estimation 
+
+```{r example plot, out.width="80%", fig.align="center", fig.cap=c(""), echo=FALSE}
+knitr::include_graphics(here::here('plots/late_tikz1.png'))
+```
 
 
 .pull-right[
@@ -131,9 +136,18 @@ example
 ]
 
 ---
-# RDD Example Plot 2
-Plot with two rectangles with a theretical bandwith
-- Data- driven Imbens -> F-Test 
+# RDD Example Plot &#8212; II
+
+## Non-parametric Estimation 
+
+```{r example plot two, out.width="80%", fig.align="center", fig.cap=c(""), echo=FALSE}
+knitr::include_graphics(here::here('plots/non_p_late_tikz1.png'))
+```
+
+--
+
+- We employed the data-driven approach by `r Citet(my_bib, 'imbensoptimal2009')` to determine the bandwidth
+
 
 
 ???
@@ -184,7 +198,7 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 .pull-right-1[
 ### Estimates
 - LATE: 0.193 (4.889)
-- Bandiwth: 0.255
+- Bandwidth: 0.255
 - $F$-statics: 0.257
 - $N$ : 126
 
