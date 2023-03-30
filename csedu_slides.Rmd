@@ -23,13 +23,17 @@ output:
 class: title-slide  
 ```{r, load_refs, include = FALSE, echo=FALSE, cache=FALSE}
 library(RefManageR)
-BibOptions(check.entries = FALSE, 
-           bib.style = "authoryear", 
-           cite.style = 'authoryear', 
-           style = "markdown",
-           hyperlink = FALSE, 
-           dashed = FALSE)
-myBib <- ReadBib("assets/example.bib", check = FALSE)
+BibOptions(
+  check.entries = TRUE,
+  bib.style = "authoryear",
+  cite.style = "authoryear",
+  style = "html",
+  hyperlink = TRUE,
+  dashed = FALSE
+)
+
+my_bib <- ReadBib("assets/library.bib", check = FALSE)
+#myBib <- ReadBib("assets/example.bib", check = FALSE)
 
 # packages
 source(here::here('assets/packages.R'))
@@ -64,7 +68,7 @@ exclamation <- icons::icon_style(icons::fontawesome$solid$exclamation, fill = "#
 
 
 .padding_left.pull-down.white[
-.font120[**_J. Klenke_**], T. Massing, N. Reckmann, J. Langerbein, B. Otto, M. Goedicke, C. Hanck
+.bold[_J. Klenke_], T. Massing, N. Reckmann, J. Langerbein, B. Otto, M. Goedicke, C. Hanck
 <br>
 <br>
 <br>
@@ -74,88 +78,67 @@ Prague, `r rmarkdown::metadata$date`
 ]
 
 ---
-# Course Description 
+# Research Idea and Course Description 
 
+- __Research Idea:__ students should receive objective and motivating warning email   
 - Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen of the summer semester 2019
 - Compulsory course for several business and economics programs
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
   - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
-  - Homework and 5 online tests were offered on the e-assessment platform [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
+  - Homework and 5 online tests were offered on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
 - Information from __802__ individuals were collected from Moodle  
   - __337__ students took an exam at the end of the semester
 
 ---
-# Research Idea Theorie 
-- Predicting students success and/or final grad is relatively early possible 
-
-
----
-# Data and Warning Mail Decision
+# Data and Decision Rule
 - We used two data sources 
-  - The first three online tests results  
-  - The commutative homework points in JACK
-- Logit model was used to predict students probability to past the final exam soley based on the results in the frist three online tests
-  - Model was trained with the latest data obtained from the same course given two years earlier
-  - We hold the lecture only every other year
-- If the predicted probability was less than 0.4 the student was indicated with a warning
-- However, as the online tests were not mandatory we also considered students' general activity in JACK and modified the decision on whether a mail was sent
+  - First three online test results  
+  - Cumulative points of the tasks in JACK
+- Logit model was used to predict students probability to pass the final exam based on the frist 3 online tests
+  - Model was trained with the latest data obtained from previous edition of the same course
+- If predicted probability to pass $\leq 0.4$ the student got a warning mail
 
 ---
 # Course Timeline Main Events
 
-<br> 
 <br>
 
-```{r, out.width="80%", fig.align="center", fig.cap=c("Timeline for the key events in the 2019 summer term course Inferential Statistics (treatment cohort). The shaded area indicates the period after treatment. There were 57 days between the warning email and the first opportunity to take the exam and 113 days between the warning email and the second opportunity."), echo=FALSE}
+```{r, out.width="80%", fig.align="center", fig.cap=c("Timeline for the key events in the 2019 summer term course Inferential Statistics (treatment cohort)."), echo=FALSE}
 knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ```
 
+- The shaded area indicates the period after treatment. 
+- 57 days between the warning mail and 1st exam 
+- 113 days between the warning email and 2nd exam
+
 ---
-# Regression Discontinuity Design (RDD) 
+# Literatur 
 
-- The treatment is __not__ randomly assigned and therefore more commonly used methods like OLS are not suitable
-  - In our design the treatment is main a function of the predicted probability to pass the final exam   
-- Consider the following _sharp_ RDD representation: 
+- Purdue
 
-$$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
-.padding_left.padding_left.font70[
-<ul>
-  <li> \(W_i\) denotes the predicted probability to pass the final exam</li>
-  <li> \(T_i\) indicates if a student received a mail</li>
-  <ul style="list-style-type: '&#8227;  ';"  >
-    <li>\(T_i = 1[W_i \leq c]\) , with \(c = 0.4\) </li>
-  </ul>
-  <li>\(\alpha\) denotes the treatment effect</li>
-  <li>\(u_i\) denotes the error term</li>
-</ul>
+
+
+-> Problem : Kaum analisiert 
+---
+# RDD Example Plot 
+example
+
+
+.pull-right[
+- Groups left and right of the cutoff 
+- Local Average Treatment Effect (__LATE__)
 ]
 
-- RDD compares the individuals around the cutoff to estimate an effect
-  - __Main Assumption:__ Indivduals around the cutoff are similar in all aspects except the treatment
-
-
---
-
-`r exclamation` $\;$  This design is not suitable for our analysis as our groups are not perfectly separated  
-
 ---
-# Fuzzy RDD
+# RDD Example Plot 2
+Plot with two rectangles with a theretical bandwith
+- Data- driven Imbens -> F-Test 
 
-- __Fuzzy__ RDD allows to analyse a treatment in a setting where the two groups are not perfectly separated
-  - Only the likelihood of receiving the treatment needs to _change_
-- The effect is estimated through an instrumental variable estimation where in the first stage the $\widehat{T}_i$ are estimated which then are inserted in the second stage
 
-- First Stage: 
-$$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$
+???
+- The method fits the bandwidth as widely as possible without introducing other confounding effects
 
-- Second Stage: 
-$$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
-
----
-# RDD Graphic 
-
-exmaple plot 
 
 ---
 # Model Assumptions
@@ -186,66 +169,167 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 ]
 
 ---
-# Results
+# Empirical Results
 
-```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the RDD Model."), echo=FALSE}
+.pull-left-2[
+
+<br>
+```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model."), echo=FALSE}
 knitr::include_graphics(here::here('plots/model_plot_label.png'))
 ```
+]
 
+--
 
-<style type="text/css">
-.tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
-  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-<table class="tg">
-<thead>
-  <tr>
-    <th class="tg-0pky"></th>
-    <th class="tg-c3ow">Model 1</th>
-    <th class="tg-c3ow">Model 2</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td class="tg-0pky">LATE</td>
-    <td class="tg-c3ow">0.193<br>(4.889)</td>
-    <td class="tg-c3ow">0.146<br>(4.852)</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">Bandwith</td>
-    <td class="tg-c3ow">0.255</td>
-    <td class="tg-c3ow">0.255</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">F-statistics</td>
-    <td class="tg-c3ow">0.257</td>
-    <td class="tg-c3ow">0.257</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">N</td>
-    <td class="tg-c3ow">126</td>
-    <td class="tg-c3ow">126</td>
-  </tr>
-</tbody>
-</table>
+.pull-right-1[
+### Estimates
+- LATE: 0.193 (4.889)
+- Bandiwth: 0.255
+- $F$-statics: 0.257
+- $N$ : 126
+
+<br>
+- We also estimated the RDD with covariates 
+  - The results were identical
+]
+
+???
+
+- theoretisch sollten Sie jetzt einen großen Sprung sehen
+---
+# Empirical Results
+
+- The LATE estimate is positive but not significant  
+  - An estimate of $0.193$ means that students who received the warning email achieved $0.193$ points more than comparable students who did not 
+  - Compared to the $60$-point exam, the effect size seems limited
+- The bandwidth of $0.255$ was determined with the data-driven approach of `r Citet(my_bib, 'imbensoptimal2009')`.
+  - Only students with a predicted probability $0.4$ (cutoff) $\pm 0.255$ (bandwidth), are included in the analysis.
+- This leads to the sample size of $126$ students.
 
 ---
+# Discussion
 
-```{r moidel_table, echo = FALSE}
- #### freq LASSO ####
+- Our RDD results do not provide evidence that the warning email has a significant effect on students’ results (or behavior)
+- The variance around the cutoff is rather high, which compromises the detection of an effect 
+- Many individuals are not included in the final analysis for several reasons
+  - Students dropping the course
+  - Students far away from the cutoff are not provding much information for the model
 
-mods <- readxl::read_excel(here::here('data/model.xlsx'))
+-> Thus precise estimation of the treatment becomes more difficult
 
-knitr::kable(mods, caption = '\\label{tab:sum_lm} Summary of the linear model', format.args = list(decimal.mark = '.', big.mark = " "),   booktabs = TRUE, linesep = "")%>%
-  kable_styling(latex_options = c("striped", "hold_position"))
-```
+
+---
+# Discussion
+
+- Students get also feedback through their online tests
+- The warning might may also lead weak students to postpone participation to a later semester
+- The motivation and objective feedback from one warning email is rather small
+
+---
+# Further Research
+
+- The effect on the dropout rate from such warning emails or systems requires further attention 
+- An automatic repeatedly feedback system could possibly have a greater impact on students motivation
+  - A detialed recurring feedback could also used to guide students
+
+--
+
+<br>
+.blockquote[
+We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system.
+]
+
+  
 
 ---
 # Sources 
 
+.font90[
+- Angrist, J. D., Imbens, G., and Rubin, D. B. (1996). Identification of causal effects using instrumental variables. Journal of the American Statistical Association, 91(434):444–455. Publisher: Taylor & Francis.
+- Huntington-Klein, N. (2022). The effect : an introduction to research design and causality. Chapman & Hall
+book. CRC Press, Taylor & Francis Group, Boca Raton ; London ; New York, first edition edition.
+- Imbens, G. and Kalyanaraman, K. (2009). Optimal bandwidth choice for the regression discontinuity estimator. National Bureau of Economic Research, 1(14726).
 - McCrary, J. (2008). Manipulation of the running variable in the regression discontinuity design: A density test. Journal of Econometrics, 142(2):698–714.
+]
+
+---
+# References 
+
+```{r refs1, echo=FALSE, results="asis", warning = FALSE}
+PrintBibliography(my_bib, .opts = list(style = "text"), start = 1, end = 7)
+```
+
+
+---
+# Appendix
+
+---
+# Regression Discontinuity Design (RDD) 
+
+- The treatment is __not__ randomly assigned and therefore methods like OLS are not suitable
+  - Treatment is a function of the predicted probability to pass the exam   
+- Consider the following _sharp_ RDD representation `r Citet(my_bib, "Huntington-Klein2022")`: 
+
+$$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
+.padding_left.padding_left.font80[
+<ul>
+  <li> \(W_i\) denotes the predicted probability to pass the final exam</li>
+  <li> \(T_i\) indicates if a student received a mail</li>
+  <ul style="list-style-type: '&#8227;  ';"  >
+    <li>\(T_i = 1[W_i \leq c]\) , with \(c = 0.4\) </li>
+  </ul>
+  <li>\(\alpha\) denotes the treatment effect</li>
+  <li>\(u_i\) denotes the error term</li>
+</ul>
+]
+
+--
+
+`r exclamation` $\;$  This design is not suitable for our analysis as our groups are not perfectly separated  
+
+---
+# Fuzzy RDD 
+
+- __Fuzzy__ RDD allows to analyse a treatment in a setting where the two groups are not perfectly separated
+  - Only the likelihood of receiving the treatment needs to _change_
+- The effect is estimated through an instrumental variable estimation 
+`r Citet(my_bib, "angristidentification1996")` where in the first stage the $\widehat{T}_i$ are estimated which then are inserted in the second stage
+
+- First Stage: 
+$$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$
+
+- Second Stage: 
+$$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
+
+---
+# Regression Discontinuity Design (RDD) II 
+
+.font70[
+<ul>
+  <li>RDD compares the individuals around the cutoff to estimate the effect</li>
+  <li><strong>Main Assumption:</strong> Individuals around the cutoff are compareable and only differ in the treatment assignment</li>
+  <ul>
+    <li>The estimate is called Local Average Treatment Effect (<strong>LATE</strong>) </li>
+  </ul>
+  <li>Two estimation approaches: parametric and non-parametric</li>
+  <ul>
+    <li>Parametric estimation</li>
+    <ul>
+      <li>Uses the whole sample size but (many) more parameters</li>
+      <li>Individuals away from the cutoff are less relevant for the estimation of the effect</li>
+    </ul>
+    <li>Non-parametric estimation</li>
+    <ul>
+      <li>Only <em>comparable</em> (near the cutoff) individuals are used for the analysis</li>
+      <ul>
+        <li>Decision whether to include an individual depends on the running variable \(W\)</li>
+        <li>The groups are determined by the the data-driven approach of Imbens and Kalyanaraman (2009)</li>
+        <ul>
+          <li>With an \(F\)-test the bandwidth is determined</li>
+          <li>\(c \pm bandwidth\) are the two groups</li>
+        </ul>
+      </ul>
+    </ul>
+  </ul>
+</ul>
+]

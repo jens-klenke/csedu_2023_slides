@@ -41,8 +41,12 @@ ggplot2::ggplot(aes(x = W, y = y, group = dummy)) +
   scale_x_continuous(breaks=c(0),
                    labels=c("Cutoff")) +
   geom_vline(xintercept = 0, linetype = 'longdash', col = '#1d7334') +
-  labs(x ='Running Variable', y = 'Final Exam Points') +
+  labs(x ='\nRunning Variable', y = 'Final Exam Points\n') +
   theme_bw() +
-  theme(axis.text.y=element_blank(),
-        axis.ticks.y=element_blank())
+  theme(axis.text.y  = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text.x  = element_text(size = 15))
+
+ggplot2::ggsave()
+
 

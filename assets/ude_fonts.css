@@ -173,3 +173,7 @@ h1, h2, h3, h4 {
   text-align: left;
   vertical-align: middle;
 }
+
+strong {
+  color: #004c93 !important;
+}
