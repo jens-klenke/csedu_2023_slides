@@ -78,24 +78,44 @@ Prague, `r rmarkdown::metadata$date`
 ]
 
 ---
+class: eg
+# Outline
+
+<br>
+
+1. [Research Idea and Course Description ](#course)
+1. [Literature on Warning Systems in Education](#literature)
+1. [Used Model: Rregression Discounity Design](#RDD)
+1. [Empirical Results](#results)
+1. [Discussion](#discussion)
+1. [Further Research](#f_reaserach)
+
+
+<br>
+- [Appendix](#appendix)
+- [References](#references)
+---
+name: course
 # Research Idea and Course Description 
 
-- __Research Idea:__ students should receive objective and motivating warning email   
+- __Research Idea:__ students should receive objective and motivating feedback through an  warning email   
 - Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen of the summer semester 2019
 - Compulsory course for several business and economics programs
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
   - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
   - Homework and 5 online tests were offered on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
-- Information from __802__ individuals were collected from Moodle  
+- Information of __802__ individuals were collected
   - __337__ students took an exam at the end of the semester
 
 ---
 # Data and Decision Rule
+
+<br>
 - We used two data sources 
   - First three online test results  
   - Cumulative points of the tasks in JACK
-- Logit model was used to predict students probability to pass the final exam based on the frist 3 online tests
+- Logit model was used to predict students probability to pass the final exam based on the first 3 online tests
   - Model was trained with the latest data obtained from previous edition of the same course
 - If predicted probability to pass $\leq 0.4$ the student got a warning mail
 
@@ -113,30 +133,40 @@ knitr::include_graphics(here::here('plots/timeline_plot.png'))
 - 113 days between the warning email and 2nd exam
 
 ---
-# Literatur 
+name: literature
+# Literature on Warning Systems in Education
 
-- Purdue
+.font80[
+- `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on grades
+- `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analysed the effect on students' performance
+- `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system. 
+- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grad.
+- `r TextCite(my_bib, 'Edmunds2002')` analyzed the effects of incentives on third and four-graders' reading motivation and did not find an effect.  
+]
+
+--
+<br>
+.blockquote[
+- The literature on the effects of warning system is inconclusive
+- Many studies analyzed the effect based on questionnaires
+]
 
 
 
--> Problem : Kaum analisiert 
 ---
-# RDD Example Plot &#8212; I
+name: RDD
+# RDD Example &#8212; I
 
 ## Parametric Estimation 
+
+<br>
 
 ```{r example plot, out.width="80%", fig.align="center", fig.cap=c(""), echo=FALSE}
 knitr::include_graphics(here::here('plots/late_tikz1.png'))
 ```
 
-
-.pull-right[
-- Groups left and right of the cutoff 
-- Local Average Treatment Effect (__LATE__)
-]
-
 ---
-# RDD Example Plot &#8212; II
+# RDD Example &#8212; II
 
 ## Non-parametric Estimation 
 
@@ -146,8 +176,7 @@ knitr::include_graphics(here::here('plots/non_p_late_tikz1.png'))
 
 --
 
-- We employed the data-driven approach by `r Citet(my_bib, 'imbensoptimal2009')` to determine the bandwidth
-
+- We used the data-driven approach by `r Citet(my_bib, 'imbensoptimal2009')` to determine the bandwidth
 
 
 ???
@@ -183,7 +212,8 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 ]
 
 ---
-# Empirical Results
+name: results
+# Empirical Results &#8212; I
 
 .pull-left-2[
 
@@ -200,7 +230,7 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 - LATE: 0.193 (4.889)
 - Bandwidth: 0.255
 - $F$-statics: 0.257
-- $N$ : 126
+- $N$: 126
 
 <br>
 - We also estimated the RDD with covariates 
@@ -211,7 +241,7 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 
 - theoretisch sollten Sie jetzt einen großen Sprung sehen
 ---
-# Empirical Results
+# Empirical Results &#8212; II
 
 - The LATE estimate is positive but not significant  
   - An estimate of $0.193$ means that students who received the warning email achieved $0.193$ points more than comparable students who did not 
@@ -221,25 +251,27 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 - This leads to the sample size of $126$ students.
 
 ---
-# Discussion
+name: discussion
+# Discussion &#8212; I
 
 - Our RDD results do not provide evidence that the warning email has a significant effect on students’ results (or behavior)
 - The variance around the cutoff is rather high, which compromises the detection of an effect 
 - Many individuals are not included in the final analysis for several reasons
   - Students dropping the course
-  - Students far away from the cutoff are not provding much information for the model
+  - Students far away from the cutoff are not providing much information for the model
 
 -> Thus precise estimation of the treatment becomes more difficult
 
 
 ---
-# Discussion
+# Discussion &#8212; II
 
 - Students get also feedback through their online tests
 - The warning might may also lead weak students to postpone participation to a later semester
 - The motivation and objective feedback from one warning email is rather small
 
 ---
+name: f_reaserach
 # Further Research
 
 - The effect on the dropout rate from such warning emails or systems requires further attention 
@@ -253,32 +285,10 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system.
 ]
 
-  
-
 ---
-# Sources 
-
-.font90[
-- Angrist, J. D., Imbens, G., and Rubin, D. B. (1996). Identification of causal effects using instrumental variables. Journal of the American Statistical Association, 91(434):444–455. Publisher: Taylor & Francis.
-- Huntington-Klein, N. (2022). The effect : an introduction to research design and causality. Chapman & Hall
-book. CRC Press, Taylor & Francis Group, Boca Raton ; London ; New York, first edition edition.
-- Imbens, G. and Kalyanaraman, K. (2009). Optimal bandwidth choice for the regression discontinuity estimator. National Bureau of Economic Research, 1(14726).
-- McCrary, J. (2008). Manipulation of the running variable in the regression discontinuity design: A density test. Journal of Econometrics, 142(2):698–714.
-]
-
----
-# References 
-
-```{r refs1, echo=FALSE, results="asis", warning = FALSE}
-PrintBibliography(my_bib, .opts = list(style = "text"), start = 1, end = 7)
-```
-
-
----
-# Appendix
-
----
-# Regression Discontinuity Design (RDD) 
+class: appendix eg
+name: appendix
+## Appendix: Regression Discontinuity Design (RDD) 
 
 - The treatment is __not__ randomly assigned and therefore methods like OLS are not suitable
   - Treatment is a function of the predicted probability to pass the exam   
@@ -302,7 +312,8 @@ $$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
 `r exclamation` $\;$  This design is not suitable for our analysis as our groups are not perfectly separated  
 
 ---
-# Fuzzy RDD 
+class: appendix eg
+## Appendix: Fuzzy RDD 
 
 - __Fuzzy__ RDD allows to analyse a treatment in a setting where the two groups are not perfectly separated
   - Only the likelihood of receiving the treatment needs to _change_
@@ -316,7 +327,8 @@ $$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$
 $$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
 
 ---
-# Regression Discontinuity Design (RDD) II 
+class: appendix eg
+## Appendix: Regression Discontinuity Design (RDD) II 
 
 .font70[
 <ul>
@@ -346,4 +358,15 @@ $$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
     </ul>
   </ul>
 </ul>
+]
+
+---
+name: references
+# References 
+
+.font70[
+
+```{r refs1, echo=FALSE, results="asis", warning = FALSE}
+PrintBibliography(my_bib, .opts = list(style = "text"), start = 1)
+```
 ]
