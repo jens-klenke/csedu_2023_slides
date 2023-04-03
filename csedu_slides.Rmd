@@ -98,14 +98,14 @@ class: eg
 name: course
 # Research Idea and Course Description 
 
-- __Research Idea:__ students should receive objective and motivating feedback through an  warning email   
+- __Research Idea:__ students should receive objective and motivating feedback through a warning email   
 - Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen of the summer semester 2019
 - Compulsory course for several business and economics programs
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
   - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
   - Homework and 5 online tests were offered on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
-- Information of __802__ individuals were collected
+- Over all systems information of __802__ individuals was collected
   - __337__ students took an exam at the end of the semester
 
 ---
@@ -115,7 +115,7 @@ name: course
 - We used two data sources 
   - First three online test results  
   - Cumulative points of the tasks in JACK
-- Logit model was used to predict students probability to pass the final exam based on the first 3 online tests
+- Logit model was used to predict students probability to pass the exam based on the first 3 online tests
   - Model was trained with the latest data obtained from previous edition of the same course
 - If predicted probability to pass $\leq 0.4$ the student got a warning mail
 
@@ -129,15 +129,15 @@ knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ```
 
 - The shaded area indicates the period after treatment. 
-- 57 days between the warning mail and 1st exam 
-- 113 days between the warning email and 2nd exam
+- 57 days between the warning mail and 1$^{st}$ exam 
+- 113 days between the warning email and 2$^{nd}$ exam
 
 ---
 name: literature
 # Literature on Warning Systems in Education
 
 .font80[
-- `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on grades
+- `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on student grades
 - `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analysed the effect on students' performance
 - `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system. 
 - `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grad.
@@ -208,7 +208,7 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 --
 
 .pull-down[
-- Also standard IV estimation assumptions must hold, which they do by construction of RDD
+- Also standard IV estimation assumptions must hold
 ]
 
 ---
