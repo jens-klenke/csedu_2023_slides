@@ -1,6 +1,6 @@
 F3: “Homework and 5 online tests on the e-assessment platform JACK”. Btw ist homework ein gutes Wort? Viele könnten darunter verstehen, dass die gemacht werden muss, bei uns ist es ja freiwillig. 
 
----> homework hab ich aus dem Paper übernommen, fand das damals schon komisch, da ich deiner Meinung bin. Christoph war ein Freund davon :-D  vllt sowas wie? additional exercises oder voluntary exercises
+---> homework hab ich aus dem Paper übernommen, fand das damals schon komisch, da bin ich deiner Meinung. Christoph war irgendwie ein Freund davon :-D  vllt sowas wie? additional exercises oder voluntary exercises
 ----------------------------------------------------------------------
 
 F5: Ich überlege gerade, ob die Info mit den wie vielen Tagen bis zum Exam (Unteren beiden Punkte) so wichtig sind. Natürlich ist es richtig, dass es 57 und 113 Tage waren, aber sollten wir das hervorheben im Vortrag? Das war ja schon im Papier eher ein Nebenaspekt und lädt zu sehr zu Diskussionen ein: „Nach 57 bzw 113 Tagen haben die das Treatment doch längst wieder vergessen“. Mag ja in der Tat stimmen, aber willst du die Diskussion unbedingt mit kritischen Nachfragern führen? 
@@ -15,4 +15,5 @@ F10: Ich glaube du wirfst bei den Zahlen with und without covariates durcheinand
 ----------------------------------------------------------------------
 
 Den Appendix habe ich mir jetzt nicht so genau angesehen, den würde ich an deiner Stelle auch nach den Referenzen setzen und ihn auch unbedingt nur zeigen, falls jemand was dazu fragt. Auf keine Fall solltest du, falls du wegen Nervosität für die eigentlichen Folien nur 10 Minuten brauchst, dann sagen „okay dann erklär ich RDD nochmal was gründlicher, ich hab ja noch Zeit“. Lieber den Teil davor genau timen und zur Not früher Schluss. Ist niemand böse, wenn mal ein Vortrag schneller fertig ist.
----> können auch den appendix löschen bin da offen 
+
+---> können auch den appendix löschen bin da offen. Ist ja meine erste Konferenz 

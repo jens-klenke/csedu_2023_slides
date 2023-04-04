@@ -42,6 +42,10 @@ my_bib <- ReadBib("assets/library.bib", check = FALSE)
 # infinity reader
 # options(servr.interval = 0.5)
 # xaringan::inf_mr()
+RefManageR::NoCite(my_bib, "angristidentification1996")
+RefManageR::NoCite(my_bib, "Huntington-Klein2022")
+
+
 ```
 
 ```{r xaringanExtra_progress-bar, echo = FALSE}
@@ -92,8 +96,8 @@ Prague, `r rmarkdown::metadata$date`
 1. [Empirical Results](#results)
 1. [Discussion](#discussion)
 1. [Further Research](#f_reaserach)
-1. [Appendix](#appendix)
 1. [References](#references)
+1. [Appendix](#appendix)
 
 ---
 name: course
@@ -155,7 +159,9 @@ name: literature
 
 ]
 
-??? just short -> inconclusive main Point 
+???
+
+just short -> inconclusive main Point 
 
 ---
 name: RDD
@@ -223,35 +229,34 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 name: results
 # Empirical Results &#8212; I
 
-```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model."), echo=FALSE}
+.pull-left-2[
+<br>
+```{r, out.width="95%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model."), echo=FALSE}
 knitr::include_graphics(here::here('plots/model_plot_label.png'))
 ```
 
-
+]
 --
 
-<!--
+
 .pull-right-1[
-### Estimates
-- LATE: 0.193 SE (4.889)
+### Estimate 
+- LATE: 0.193 
+  - SE: (4.889)
+  - $p$-value: 0.968
 - Bandwidth: 0.255
-- $F$-statistic: 0.257
 - $N$: 126
 
-<br>
-- We also estimated the RDD with covariates 
-  - The results were identical
 ]
--->
-
-.pull-down[LATE: $0.193$ SE $(4.889)$; p-value: $0.976; \ \ \ $ Bandwidth: $ 0.255;  \ \ \ N: 126$ ]
 
 ???
 
 - theoretisch sollten Sie jetzt einen großen Sprung sehen
 - covariates auch getestet
 - other approaches were used
+
 ---
+
 # Empirical Results &#8212; II
 
 - The LATE estimate is positive but not significant  
@@ -302,6 +307,18 @@ name: f_reaserach
 .blockquote[
 We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system.
 ]
+
+---
+name: references
+# References
+
+.font80[
+
+```{r refs1, echo=FALSE, results="asis", warning = FALSE}
+PrintBibliography(my_bib, .opts = list(style = "text"), start = 1)
+```
+]
+
 
 ---
 class: appendix eg
@@ -379,13 +396,4 @@ class: appendix eg
 </ul>
 ]
 
----
-name: references
-# References
 
-.font80[
-
-```{r refs1, echo=FALSE, results="asis", warning = FALSE}
-PrintBibliography(my_bib, .opts = list(style = "text"), start = 1)
-```
-]
