@@ -223,31 +223,34 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 name: results
 # Empirical Results &#8212; I
 
-.pull-left-2[
-
-<br>
 ```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model."), echo=FALSE}
 knitr::include_graphics(here::here('plots/model_plot_label.png'))
 ```
-]
+
 
 --
 
+<!--
 .pull-right-1[
 ### Estimates
-- LATE: 0.193 (4.889)
+- LATE: 0.193 SE (4.889)
 - Bandwidth: 0.255
-- $F$-statics: 0.257
+- $F$-statistic: 0.257
 - $N$: 126
 
 <br>
 - We also estimated the RDD with covariates 
   - The results were identical
 ]
+-->
+
+.pull-down[LATE: $0.193$ SE $(4.889)$; p-value: $0.976; \ \ \ $ Bandwidth: $ 0.255;  \ \ \ N: 126$ ]
 
 ???
 
 - theoretisch sollten Sie jetzt einen großen Sprung sehen
+- covariates auch getestet
+- other approaches were used
 ---
 # Empirical Results &#8212; II
 
@@ -257,12 +260,12 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 
 --
 
-- The bandwidth of $0.255$ was determined with the data-driven approach of `r Citet(my_bib, 'imbensoptimal2009')`.
+- Bandwidth of $0.255$
   - Only students with a predicted probability $0.4$ (cutoff) $\pm 0.255$ (bandwidth), are included in the analysis.
   
 --
 
-- This leads to the sample size of $126$ students.
+- This leads to the effective sample size of $126$ students.
 
 ---
 name: discussion
