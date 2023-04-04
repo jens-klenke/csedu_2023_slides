@@ -22,6 +22,9 @@ output:
 ---
 class: title-slide  
 ```{r, load_refs, include = FALSE, echo=FALSE, cache=FALSE}
+# packages
+source(here::here('assets/packages.R'))
+
 library(RefManageR)
 BibOptions(
   check.entries = TRUE,
@@ -35,8 +38,6 @@ BibOptions(
 my_bib <- ReadBib("assets/library.bib", check = FALSE)
 #myBib <- ReadBib("assets/example.bib", check = FALSE)
 
-# packages
-source(here::here('assets/packages.R'))
 
 # infinity reader
 # options(servr.interval = 0.5)
@@ -87,7 +88,7 @@ Prague, `r rmarkdown::metadata$date`
 
 1. [Research Idea and Course Description](#course)
 1. [Literature on Warning Systems in Education](#literature)
-1. [Used Model: Rregression Discounity Design](#RDD)
+1. [Used Model: Regression Discounity Design (RDD)](#RDD)
 1. [Empirical Results](#results)
 1. [Discussion](#discussion)
 1. [Further Research](#f_reaserach)
@@ -99,24 +100,24 @@ name: course
 # Research Idea and Course Description 
 
 - __Research Idea:__ students should receive objective and motivating feedback through a warning email   
-- Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen of the summer semester 2019
-- Compulsory course for several business and economics programs
+- Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen
+- Compulsory for business and economics
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
-  - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
-  - Homework and 5 online tests were offered on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
-- Over all systems we gathered information of __802__ individuals 
+  - [Kahoot!](https://kahoot.com/) games used during classes
+  - Homework and 5 online tests on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
+- __802__ students at the beginning of the semester
   - __337__ students took an exam at the end of the semester
 
 ---
-# Data and Decision Rule
-
+# Decision Rule
 <br>
-- We used two data sources 
-  - First three online test results  
-  - Cumulative points of the tasks in JACK
+<br>
 - Logit model was used to predict students probability to pass the exam based on the first 3 online tests
   - Model was trained with the latest data obtained from previous edition of the same course
+
+--
+
 - If predicted probability to pass $\leq 0.4$ the student got a warning mail
 
 ---
@@ -140,7 +141,7 @@ name: literature
 - `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on student grades
 - `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analysed the effect on students' performance
 - `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system. 
-- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grad.
+- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grade.
 - `r TextCite(my_bib, 'Edmunds2002')` analyzed the effects of incentives on third and four-graders' reading motivation and did not find an effect.  
 ]
 
@@ -154,9 +155,11 @@ name: literature
 
 ]
 
+??? just short -> inconclusive main Point 
+
 ---
 name: RDD
-# RDD Example &#8212; I
+# RDD Toy Example &#8212; I
 
 ## Parametric Estimation 
 
@@ -167,7 +170,7 @@ knitr::include_graphics(here::here('plots/late_tikz1.png'))
 ```
 
 ---
-# RDD Example &#8212; II
+# RDD Toy Example &#8212; II
 
 ## Non-parametric Estimation 
 
@@ -187,7 +190,11 @@ knitr::include_graphics(here::here('plots/non_p_late_tikz1.png'))
 ---
 # Model Assumptions
 
-- The running variable $W$ (predicted probability to pass the exam) needs to be continuous around the cutoff, otherwise students could manipulate the treatment
+<!--
+- The running variable $W$ does not (predicted probability to pass the exam) needs to be continuous around the cutoff, otherwise students could manipulate the treatment
+-->
+
+- The running variable $W$ must not have a jump around the cutoff in the density function. 
 
 .pull-left-2[
 ```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the McCrary sorting test."), echo=FALSE}

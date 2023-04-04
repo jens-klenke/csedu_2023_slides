@@ -17,7 +17,7 @@ pacman::p_load(dplyr,
                xaringan,
                leaflet,
                plotly,
-               ggbrace)
+               xaringanExtra)
 
 # install packages from Github (no CRAN version at the moment)
 if (!require("icons")) devtools::install_github('mitchelloharawild/icons')
