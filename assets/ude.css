@@ -160,6 +160,10 @@ a {
     color: #0148A4; 
 } 
 
+.inverse  a { 
+    color: #ffffff; 
+} 
+
 .columns-2 {
   -webkit-columns: 2;
   -moz-columns: 2;
@@ -506,6 +510,10 @@ vertical-align: middle;
 
 .padding_left {
   padding-left: 25px;
+}
+
+.padding_left_2 {
+  padding-left: 50px;
 }
 
 /* if wanted to change mathjax formatting

@@ -61,6 +61,8 @@ htmltools::tagList(
 
 desktop <- icons::icon_style(icons::fontawesome$solid$desktop, fill = "#004c93")
 exclamation <- icons::icon_style(icons::fontawesome$solid$exclamation, fill = "#004c93")
+square_right <- icons::icon_style(icons::fontawesome$solid$`caret-square-right`, fill = "#004c93")
+circle_right <- icons::icon_style(icons::fontawesome$solid$`arrow-circle-right`, fill ="#004c93")
 ```
 <br>
 <br>
@@ -78,22 +80,20 @@ Prague, `r rmarkdown::metadata$date`
 ]
 
 ---
-class: eg
+
 # Outline
 
 <br>
 
-1. [Research Idea and Course Description ](#course)
+1. [Research Idea and Course Description](#course)
 1. [Literature on Warning Systems in Education](#literature)
 1. [Used Model: Rregression Discounity Design](#RDD)
 1. [Empirical Results](#results)
 1. [Discussion](#discussion)
 1. [Further Research](#f_reaserach)
+1. [Appendix](#appendix)
+1. [References](#references)
 
-
-<br>
-- [Appendix](#appendix)
-- [References](#references)
 ---
 name: course
 # Research Idea and Course Description 
@@ -105,7 +105,7 @@ name: course
   - Weekly 2-hour exercise
   - [Kahoot!](https://kahoot.com/) games were used to interact with students during classes
   - Homework and 5 online tests were offered on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
-- Over all systems information of __802__ individuals was collected
+- Over all systems we gathered information of __802__ individuals 
   - __337__ students took an exam at the end of the semester
 
 ---
@@ -129,8 +129,8 @@ knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ```
 
 - The shaded area indicates the period after treatment. 
-- 57 days between the warning mail and 1$^{st}$ exam 
-- 113 days between the warning email and 2$^{nd}$ exam
+- 57 days between the warning mail and $1^{st}$ exam 
+- 113 days between the warning email and $2^{nd}$ exam
 
 ---
 name: literature
@@ -148,10 +148,11 @@ name: literature
 <br>
 .blockquote[
 - The literature on the effects of warning system is inconclusive
-- Many studies analyzed the effect based on questionnaires
+- Many studies analyzed the sytstem with questionnaires
+
+.padding_left_2[`r circle_right` We try to measure the effect directly on students' performance]
+
 ]
-
-
 
 ---
 name: RDD
@@ -246,8 +247,14 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 - The LATE estimate is positive but not significant  
   - An estimate of $0.193$ means that students who received the warning email achieved $0.193$ points more than comparable students who did not 
   - Compared to the $60$-point exam, the effect size seems limited
+
+--
+
 - The bandwidth of $0.255$ was determined with the data-driven approach of `r Citet(my_bib, 'imbensoptimal2009')`.
   - Only students with a predicted probability $0.4$ (cutoff) $\pm 0.255$ (bandwidth), are included in the analysis.
+  
+--
+
 - This leads to the sample size of $126$ students.
 
 ---
@@ -260,15 +267,16 @@ name: discussion
   - Students dropping the course
   - Students far away from the cutoff are not providing much information for the model
 
--> Thus precise estimation of the treatment becomes more difficult
+.padding_left_2[`r circle_right`  Thus precise estimation of the treatment becomes more difficult]
 
 
 ---
 # Discussion &#8212; II
 
 - Students get also feedback through their online tests
-- The warning might may also lead weak students to postpone participation to a later semester
-- The motivation and objective feedback from one warning email is rather small
+- The warning may also lead weak students to postpone participation to a later semester
+  - The cost to postone exams are in our program quiet low
+- The objective feedback and motivation from one warning email is rather small
 
 ---
 name: f_reaserach
@@ -276,7 +284,7 @@ name: f_reaserach
 
 - The effect on the dropout rate from such warning emails or systems requires further attention 
 - An automatic repeatedly feedback system could possibly have a greater impact on students motivation
-  - A detialed recurring feedback could also used to guide students
+  - A detailed recurring feedback could also used to guide students
 
 --
 
@@ -288,11 +296,11 @@ We see the open and transparent communication of the student’s performance to 
 ---
 class: appendix eg
 name: appendix
-## Appendix: Regression Discontinuity Design (RDD) 
+## Appendix: Regression Discontinuity Design (RDD)  &#8212; I
 
 - The treatment is __not__ randomly assigned and therefore methods like OLS are not suitable
   - Treatment is a function of the predicted probability to pass the exam   
-- Consider the following _sharp_ RDD representation `r Citet(my_bib, "Huntington-Klein2022")`: 
+- Consider the following __sharp__ RDD representation `r Citet(my_bib, "Huntington-Klein2022")`: 
 
 $$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
 .padding_left.padding_left.font80[
@@ -313,7 +321,8 @@ $$Y_i = \beta_0 + \alpha T_i + \beta W_i + u_i$$
 
 ---
 class: appendix eg
-## Appendix: Fuzzy RDD 
+## Appendix: Regression Discontinuity Design (RDD) &#8212; II
+### Appendix: Fuzzy RDD 
 
 - __Fuzzy__ RDD allows to analyse a treatment in a setting where the two groups are not perfectly separated
   - Only the likelihood of receiving the treatment needs to _change_
@@ -328,7 +337,7 @@ $$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
 
 ---
 class: appendix eg
-## Appendix: Regression Discontinuity Design (RDD) II 
+## Appendix: Regression Discontinuity Design (RDD)  &#8212; III
 
 .font70[
 <ul>
@@ -337,7 +346,7 @@ class: appendix eg
   <ul>
     <li>The estimate is called Local Average Treatment Effect (<strong>LATE</strong>) </li>
   </ul>
-  <li>Two estimation approaches: parametric and non-parametric</li>
+  <li>For both methods, sharp and fuzzy,the estimation can be either parametric or non-parametric</li>
   <ul>
     <li>Parametric estimation</li>
     <ul>
@@ -362,9 +371,9 @@ class: appendix eg
 
 ---
 name: references
-# References 
+# References
 
-.font70[
+.font80[
 
 ```{r refs1, echo=FALSE, results="asis", warning = FALSE}
 PrintBibliography(my_bib, .opts = list(style = "text"), start = 1)
