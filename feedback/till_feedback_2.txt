@@ -1,0 +1,14 @@
+Hallo Jens,
+
+ich empfehle nochmal einen Spell Checker laufen zu lassen, ich möchte weder, dass du dich vor Christoph noch in Prag blamierst mit peinlichen Typos.
+
+Hast du irgendwas an den Einstellung geändert? Wenn ich das pdf aufmache wird es mir um 90° angezeigt. Das wäre nicht sehr praktisch, wenn das auch in Prag so wäre.
+
+Kannst du dich bitte noch für eine einheitliche Punktsetzung am Ende der bulletpoints entscheiden.
+
+F2: Discontinuity
+F3: Lass mal homework da stehen und schreib in Klammern dahinter formative assessment und hinter den online tests summative assessment
+F5: Ja man kann es auch drinlassen, wird wohl so oder so zu Diskussionen kommen.
+F6: Im Vergleich zur letzten Version hast du nach der running variable  W die Erläuterung was die ist rausgenommen. Warum? Ohne weiß keiner was das ist? (IM Gegenteil könnte man eher das Symbol $W$ rausnehmen)
+F10: So wie du es jetzt aufschreibst mit Unterpunkt, brauchst du um den SE keine Klammern mehr setzen.
+F13: „The costs… “  „in our program” an das Ende oder den Anfang des Satzes.

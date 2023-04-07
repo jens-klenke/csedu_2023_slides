@@ -92,12 +92,11 @@ Prague, `r rmarkdown::metadata$date`
 
 1. [Research Idea and Course Description](#course)
 1. [Literature on Warning Systems in Education](#literature)
-1. [Used Model: Regression Discounity Design (RDD)](#RDD)
+1. [Used Model: Regression Discontinuity Design (RDD)](#RDD)
 1. [Empirical Results](#results)
 1. [Discussion](#discussion)
 1. [Further Research](#f_reaserach)
 1. [References](#references)
-1. [Appendix](#appendix)
 
 ---
 name: course
@@ -109,7 +108,7 @@ name: course
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
   - [Kahoot!](https://kahoot.com/) games used during classes
-  - Homework and 5 online tests on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
+  - Homework (formative assessment) and 5 online tests (summative assessment) on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
 - __802__ students at the beginning of the semester
   - __337__ students took an exam at the end of the semester
 
@@ -129,11 +128,11 @@ name: course
 
 <br>
 
-```{r, out.width="80%", fig.align="center", fig.cap=c("Timeline for the key events in the 2019 summer term course Inferential Statistics (treatment cohort)."), echo=FALSE}
+```{r, out.width="80%", fig.align="center", fig.cap=c("Timeline for the key events in the 2019 summer term course Inferential Statistics (treatment cohort)"), echo=FALSE}
 knitr::include_graphics(here::here('plots/timeline_plot.png'))
 ```
 
-- The shaded area indicates the period after treatment. 
+- The shaded area indicates the period after treatment
 - 57 days between the warning mail and $1^{st}$ exam 
 - 113 days between the warning email and $2^{nd}$ exam
 
@@ -144,9 +143,9 @@ name: literature
 .font80[
 - `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on student grades
 - `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analysed the effect on students' performance
-- `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system. 
-- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grade.
-- `r TextCite(my_bib, 'Edmunds2002')` analyzed the effects of incentives on third and four-graders' reading motivation and did not find an effect.  
+- `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system 
+- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grade
+- `r TextCite(my_bib, 'Edmunds2002')` analyzed the effects of incentives on third and four-graders' reading motivation and did not find an effect
 ]
 
 --
@@ -200,10 +199,10 @@ knitr::include_graphics(here::here('plots/non_p_late_tikz1.png'))
 - The running variable $W$ does not (predicted probability to pass the exam) needs to be continuous around the cutoff, otherwise students could manipulate the treatment
 -->
 
-- The running variable $W$ must not have a jump around the cutoff in the density function. 
+- The running variable $W$ (predicted probability to pass the exam) must not have a jump around the cutoff in the density function 
 
 .pull-left-2[
-```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the McCrary sorting test."), echo=FALSE}
+```{r, out.width="80%", fig.align="center", fig.cap=c("Graphical illustration of the McCrary sorting test"), echo=FALSE}
 knitr::include_graphics(here::here('plots/test_cont_label.png'))
 ```
 ]
@@ -213,9 +212,9 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 .pull-right-1[
 <br>
 
-- There is no jump in the density around the cutoff point of $0.4$. 
+- There is no jump in the density around the cutoff point of $0.4$
 - $p$-value: $0.509$
-- The incentive to manipulate the treatment is quiet low. 
+- The incentive to manipulate the treatment is quiet low
 
 ]
 
@@ -231,7 +230,7 @@ name: results
 
 .pull-left-2[
 <br>
-```{r, out.width="95%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model."), echo=FALSE}
+```{r, out.width="95%", fig.align="center", fig.cap=c("Graphical illustration of the RDD model"), echo=FALSE}
 knitr::include_graphics(here::here('plots/model_plot_label.png'))
 ```
 
@@ -242,7 +241,7 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 .pull-right-1[
 ### Estimate 
 - LATE: 0.193 
-  - SE: (4.889)
+  - SE: 4.889
   - $p$-value: 0.968
 - Bandwidth: 0.255
 - $N$: 126
@@ -266,11 +265,11 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 --
 
 - Bandwidth of $0.255$
-  - Only students with a predicted probability $0.4$ (cutoff) $\pm 0.255$ (bandwidth), are included in the analysis.
+  - Only students with a predicted probability $0.4$ (cutoff) $\pm \ 0.255$ (bandwidth), are included in the analysis
   
 --
 
-- This leads to the effective sample size of $126$ students.
+- This leads to the effective sample size of $126$ students
 
 ---
 name: discussion
@@ -290,7 +289,7 @@ name: discussion
 
 - Students get also feedback through their online tests
 - The warning may also lead weak students to postpone participation to a later semester
-  - The cost to postone exams are in our program quiet low
+  - The cost in our program to postone exams are quiet low
 - The objective feedback and motivation from one warning email is rather small
 
 ---
@@ -305,7 +304,7 @@ name: f_reaserach
 
 <br>
 .blockquote[
-We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system.
+We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system
 ]
 
 ---
@@ -319,7 +318,8 @@ PrintBibliography(my_bib, .opts = list(style = "text"), start = 1)
 ```
 ]
 
-
+```{html, include = FALSE}
+<!--
 ---
 class: appendix eg
 name: appendix
@@ -362,6 +362,8 @@ $$T_i = \gamma_0 +\gamma_i Z_i + \gamma_2  W_i + \nu_i \qquad \quad$$
 - Second Stage: 
 $$Y_i  = \beta_0 + \alpha \widehat{T}_i + \delta_1 W_i + \beta X_i + u_i$$
 
+
+
 ---
 class: appendix eg
 ## Appendix: Regression Discontinuity Design (RDD)  &#8212; III
@@ -395,5 +397,8 @@ class: appendix eg
   </ul>
 </ul>
 ]
+
+-->
+```
 
 
