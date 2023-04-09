@@ -42,8 +42,8 @@ my_bib <- ReadBib("assets/library.bib", check = FALSE)
 # infinity reader
 # options(servr.interval = 0.5)
 # xaringan::inf_mr()
-RefManageR::NoCite(my_bib, "angristidentification1996")
-RefManageR::NoCite(my_bib, "Huntington-Klein2022")
+#RefManageR::NoCite(my_bib, "angristidentification1996")
+#RefManageR::NoCite(my_bib, "Huntington-Klein2022")
 
 
 ```
@@ -113,11 +113,11 @@ name: course
   - __337__ students took an exam at the end of the semester
 
 ---
-# Decision Rule
+# Treatment Assignment
 <br>
 <br>
-- Logit model was used to predict students probability to pass the exam based on the first 3 online tests
-  - Model was trained with the latest data obtained from previous edition of the same course
+- The Logit model was used to predict students' probability to pass the exam based on the first 3 online tests
+  - The model was trained with the latest data obtained from the previous edition of the same course
 
 --
 
@@ -141,10 +141,11 @@ name: literature
 # Literature on Warning Systems in Education
 
 .font80[
-- `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at the Purdue University and found a positive effect on student grades
-- `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analysed the effect on students' performance
-- `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where for each assessment the students get feedback. Students emphasized the usefulness of the system 
-- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early waning system in the ninth grade
+- `r TextCite(my_bib, 'Arnold2012')` investigated the effect of the signal light system at Purdue University and found a positive effect on student grades
+- `r TextCite(my_bib, 'baneres2020')` implemented an early warning system but did not analyze the effect on students' performance
+- `r TextCite(my_bib, 'csahin2019')` invented an _Intelligent Intervention System_ where students get feedback for each assessment
+  - Students emphasized the usefulness of the system 
+- `r TextCite(my_bib, 'Iver2019')` could not find an effect from their early warning system in the ninth grade
 - `r TextCite(my_bib, 'Edmunds2002')` analyzed the effects of incentives on third and four-graders' reading motivation and did not find an effect
 ]
 
@@ -152,7 +153,7 @@ name: literature
 <br>
 .blockquote[
 - The literature on the effects of warning system is inconclusive
-- Many studies analyzed the sytstem with questionnaires
+- Many studies analyzed the system with questionnaires
 
 .padding_left_2[`r circle_right` We try to measure the effect directly on students' performance]
 
@@ -214,14 +215,14 @@ knitr::include_graphics(here::here('plots/test_cont_label.png'))
 
 - There is no jump in the density around the cutoff point of $0.4$
 - $p$-value: $0.509$
-- The incentive to manipulate the treatment is quiet low
+- The incentive to manipulate the treatment is quite low
 
 ]
 
 --
 
 .pull-down[
-- Also standard IV estimation assumptions must hold
+- Also, standard IV estimation assumptions must hold
 ]
 
 ---
@@ -275,11 +276,11 @@ knitr::include_graphics(here::here('plots/model_plot_label.png'))
 name: discussion
 # Discussion &#8212; I
 
-- Our RDD results do not provide evidence that the warning email has a significant effect on students’ results (or behavior)
-- The variance around the cutoff is rather high, which compromises the detection of an effect 
+- Our RDD results do not provide evidence that the warning email has a significant effect on students' results (or behavior)
+- The variance around the cutoff is relatively high, which compromises the detection of an effect 
 - Many individuals are not included in the final analysis for several reasons
   - Students dropping the course
-  - Students far away from the cutoff are not providing much information for the model
+  - Students far away from the cutoff are not providing much information 
 
 .padding_left_2[`r circle_right`  Thus precise estimation of the treatment becomes more difficult]
 
@@ -287,9 +288,9 @@ name: discussion
 ---
 # Discussion &#8212; II
 
-- Students get also feedback through their online tests
+- Students also get feedback through their online tests
 - The warning may also lead weak students to postpone participation to a later semester
-  - The cost in our program to postone exams are quiet low
+  - The cost in our program to postpone exams is quite low
 - The objective feedback and motivation from one warning email is rather small
 
 ---
@@ -297,14 +298,14 @@ name: f_reaserach
 # Further Research
 
 - The effect on the dropout rate from such warning emails or systems requires further attention 
-- An automatic repeatedly feedback system could possibly have a greater impact on students motivation
-  - A detailed recurring feedback could also used to guide students
+- An automatic repeatedly feedback system could have a more significant impact on student's motivation
+  - Detailed recurring feedback could also be used to guide students
 
 --
 
 <br>
 .blockquote[
-We see the open and transparent communication of the student’s performance to the students as a positive aspect of the system
+We see the open and transparent communication of the student's performance to the students as a positive aspect of the system
 ]
 
 ---
