@@ -155,7 +155,7 @@ name: literature
 - The literature on the effects of warning system is inconclusive
 - Many studies analyzed the system with questionnaires
 
-.padding_left_2[`r circle_right` We try to measure the effect directly on students' performance]
+.padding_left_2[`r circle_right` We try to measure the direct effect on students' performance]
 
 ]
 
