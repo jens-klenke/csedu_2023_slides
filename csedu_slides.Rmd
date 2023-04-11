@@ -84,6 +84,8 @@ $15^{TH}$ International Conference on Computer Supported Education
 Prague, `r rmarkdown::metadata$date`
 ]
 
+```{html, include = FALSE}
+<!--
 ---
 
 # Outline
@@ -97,18 +99,26 @@ Prague, `r rmarkdown::metadata$date`
 1. [Discussion](#discussion)
 1. [Further Research](#f_reaserach)
 1. [References](#references)
+-->
+```
 
 ---
 name: course
 # Research Idea and Course Description 
 
-- __Research Idea:__ students should receive objective and motivating feedback through a warning email   
+## Research question
+
+.blockquote[
+Does objective and motivating feedback through a warning email have a positive impact on student's performance
+]
+
+--
+
 - Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen
 - Compulsory for business and economics
   - Weekly 2-hour lecture 
   - Weekly 2-hour exercise
-  - [Kahoot!](https://kahoot.com/) games used during classes
-  - Homework (formative assessment) and 5 online tests (summative assessment) on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
+  - We also have other interventions
 - __802__ students at the beginning of the semester
   - __337__ students took an exam at the end of the semester
 
@@ -116,12 +126,17 @@ name: course
 # Treatment Assignment
 <br>
 <br>
-- The Logit model was used to predict students' probability to pass the exam based on the first 3 online tests
+- A logit model was used to predict students' probability to pass the exam based on the first 3 online tests
   - The model was trained with the latest data obtained from the previous edition of the same course
 
 --
 
 - If predicted probability to pass $\leq 0.4$ the student got a warning mail
+
+???
+
+- [Kahoot!](https://kahoot.com/) games used during classes
+- Homework (formative assessment) and 5 online tests (summative assessment) on the e-assessment platform  [JACK](https://s3.paluno.uni-due.de/en/forschung/spalte1/e-learning-und-e-assessment)
 
 ---
 # Course Timeline Main Events
@@ -298,7 +313,7 @@ name: f_reaserach
 # Further Research
 
 - The effect on the dropout rate from such warning emails or systems requires further attention 
-- An automatic repeatedly feedback system could have a more significant impact on student's motivation
+- An automatic repeated feedback system could have a more significant impact on student's motivation
   - Detailed recurring feedback could also be used to guide students
 
 --
