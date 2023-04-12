@@ -104,15 +104,14 @@ Prague, `r rmarkdown::metadata$date`
 
 ---
 name: course
-# Research Idea and Course Description 
+## Research Question
 
-## Research question
-
-.blockquote[
 Does objective and motivating feedback through a warning email have a positive impact on student's performance
-]
+
 
 --
+
+## Course Description
 
 - Analyzed Course: _Inferential Statistics_ at the University of Duisburg-Essen
 - Compulsory for business and economics
